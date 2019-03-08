@@ -49,8 +49,7 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 
-  # Irina. added willpaginame gem
-  gem 'will_paginate', '~> 3.1.0' 
+
 end
 
 group :test do
@@ -78,3 +77,8 @@ end
 gem "font-awesome-rails"
 
 
+# Irina. added willpaginame gem
+gem 'will_paginate', '~> 3.1.0'
+
+
+gem 'devise'
