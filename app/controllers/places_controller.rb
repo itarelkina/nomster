@@ -2,8 +2,10 @@ class PlacesController < ApplicationController
 
     before_action :authenticate_user!, only: [:new, :update]
   
-  def index
-    @places = Place.all
+    def index
+      @places = Place.all.page(params[:page]).per_page(5)
+    end  
+
     # example 1 @posts = Post.paginate :page => params[:page], :order => 'created_at DESC'
     # example 2 @products = Product.order("name").page(params[:page]).per_page(5)
     # @places = Place.paginate :page => params[:page], :order => 'created_at DESC'
