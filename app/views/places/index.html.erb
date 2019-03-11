@@ -1,22 +1,58 @@
+<div class="navigation_container col-10 offset-1">
+  <nav aria-label="Page navigation example">
+      <ul class="pagination">
+          <% @pages_num.times do |num| %>
+          <li class="page-item"><a href="<%= num + 1 %>" class="page-link"><%= num + 1 %></a></li>
+          <% end %>
+      </ul>
+  </nav>
+</div>
+
 <% @places.each do |place| %>
-  <div class="booyah-box col-10 offset-1">
+
+  <div class="nomster-box col-10 offset-1">
     <h1><%= link_to place.name, place_path(place) %></h1><br />
-    <i><%= place.address %></i><br />
-    <p><%= place.description %></p><br />
+    <i><%= place.address %></i><br /><br />
+    <p><%= place.description  %></p><br />
 
     <% if place.user.present? %>
       <small><%= place.user.email %></small>
     <% end %>
-
-<% if place.comments.present? %>
-  <div class="col-12">
-    <blockquote>
-      <% if place.comments.last.humanized_rating.present? %>
-        <b><%= place.comments.last.humanized_rating %></b> -
-      <% end %>
-      <%= place.comments.last.message %>
-      <small><%= place.comments.last.user.email %></small>
-    </blockquote>
+      
+    <% if place.photos.present? %>
+      <div class="col-12 centered place_photo_holder">
+        <% photo = place.photos.last %>
+        <%= image_tag photo.picture.url, class: "thumbnail" %>
+        <br />
+        <%= photo.caption  %>
+        <br />
+        <small><%= photo.user.email %></small>
+        <br />
+      </div>
+    <% end %>
+      
+    <% if place.comments.present? %>
+      <div class="col-12">
+        <blockquote>
+          <% comment = place.comments.last %>
+            <% if comment.humanize_ratings.present? %>
+              <b>
+                <% comment.humanize_ratings.times do |i| %>
+                  <i class="fa fa-star"></i>
+                <% end %>
+              </b>
+              <b>
+                <% (5 - comment.humanize_ratings).times do |i| %>
+                  <i class="fa fa-star-o"></i>
+                <% end %>
+              </b>
+            <% end %>
+            <br />
+            <%= comment.message %>
+            <small class="float-right"><%= comment.user.email %></small>
+        </blockquote>
+      </div>
+    <% end %>
   </div>
-<% end %>
+
 <% end %>
