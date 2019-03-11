@@ -2,13 +2,12 @@ class PlacesController < ApplicationController
 
     before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   
-    def index
-      @places = Place.all.page(params[:page]).per_page(5)
-    end  
-
-    # example 1 @posts = Post.paginate :page => params[:page], :order => 'created_at DESC'
-    # example 2 @products = Product.order("name").page(params[:page]).per_page(5)
-    # @places = Place.paginate :page => params[:page], :order => 'created_at DESC'
+   def index
+    per_page = 2
+    puts params[:page]
+    @pages_num = Place.all.length / per_page
+    @places = Place.paginate(:page => params[:page], :per_page => per_page)
+  end
 
   def new
     @place = Place.new
@@ -24,10 +23,10 @@ def create
   end
 end
 
-
-  def show
-    @place = Place.find(params[:id])
-  end
+def show
+  @place = Place.find(params[:id])
+  @comment = Comment.new
+end
 
 def edit
   @place = Place.find(params[:id])
