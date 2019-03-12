@@ -1,10 +1,24 @@
 @import "bootstrap";
-
 @import "font-awesome";
 
+body {
+  background: image_url('gravel.png');
+  font-family: Constantia, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "DejaVu Serif", "Bitstream Vera Serif", "Liberation Serif", Georgia, serif;
+}
 
+.navbar {
+    background: image_url('random_grey_variations.png');
+    box-shadow: 0px 0px 15px #000;
+}
 
-.booyah-box {
+.navbar-inverse .navbar-brand {
+  color: #ff3333;
+  font-family: 'Laila', serif;
+  font-weight: 900;
+  letter-spacing: 5px;
+}
+
+.nomster-box {
   -moz-box-shadow: 1px 1px 2px 0 #d0d0d0;
   -webkit-box-shadow: 1px 1px 2px 0 #d0d0d0;
   box-shadow: 1px 1px 2px 0 #d0d0d0;
@@ -21,39 +35,49 @@ h1, h2, h3, h4, h5, h6 {
   padding:0;
 }
 
-body {
-  background: image_url('gravel.png');
-  font-family: Cambria, "Hoefler Text", Utopia, "Liberation Serif", "Nimbus Roman No9 L Regular", Times, "Times New Roman", serif;
-}
-
-.navbar {
-  background: image_url('random_grey_variations.png');
-  box-shadow: 0px 1px 3px #2a2a2a;
-}
-.navbar-inverse .navbar-brand {
-  color: #f44242 !important;
-  font-family: 'source_sans_problack';
-  font-size:26px;
+.navigation_container {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    padding: 0;
 }
 
 .invalid-feedback {
-  color: #ff3333;
-  background-color: #FFEEEE;
-  border-radius: 3px;
-  padding: 2px 8px 2px 8px;
+    color: #ff3333;
+    background-color: #FFEEEE;
+    border-radius: 3px;
+    padding: 2px 8px;
+}
+
+nav button.navbar-toggler {
+    color: #f9cccc;
+}
+div.navbar-collapse ul {
+    list-style-type: none;
+}
+a, a:hover {
+    color: #333;
+    text-decoration: none;
+}
+
+a.nav-link,
+a.nav-link:hover {
+    color: #f9cccc;
+    font-family: 'Laila', serif;
 }
 
 #map {
-height: 300px;
+    height: 500px;
 }
+
 .clear {
     clear: both;
 }
+
 blockquote {
   background: #f9f9f9;
   border-left: 10px solid #ccc;
   margin: 1.5em 10px;
-  padding: 0.5em 10px;
+  padding: 1.5em 10px;
   quotes: "\201C""\201D""\2018""\2019";
 }
 
@@ -68,4 +92,18 @@ blockquote:before {
 
 blockquote p {
   display: inline;
+}
+
+img.thumbnail {
+    max-width: 50%;
+    max-height: 250px;
+}
+
+.centered {
+    text-align: center;
+}
+
+.place_photo_holder {
+    box-shadow: rgba(0,0,0,0.25) 0px 0px 5px;
+    padding: 15px;
 }
