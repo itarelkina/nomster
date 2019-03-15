@@ -73,6 +73,16 @@ a.nav-link:hover {
 .clear {
     clear: both;
 }
+.page-link {
+  position: relative;
+  display: block;
+  padding: 0.5rem 2rem;
+  margin-left: 2px;
+  line-height: 1.25;
+  color:#ff3333;
+  background-color: #fff;
+  border: 1px solid #ddd;
+}
 
 blockquote {
   background: #f9f9f9;
