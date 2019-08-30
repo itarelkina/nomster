@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(version: 2019_03_12_012436) do
     t.datetime "updated_at", null: false
     t.string "picture"
     t.integer "user_id"
+    t.index ["place_id"], name: "index_photos_on_place_id"
     t.index ["user_id"], name: "index_photos_on_user_id"
   end
 
